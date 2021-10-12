@@ -1,6 +1,6 @@
 package com.ktds.model;
 
-//MemberVO ¿ªÇÒ
+
 public class Member {
 	private String member_id;  
 	private String member_pw;
