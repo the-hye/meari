@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <!-- css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     
     <!-- swiper 사용 css -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
@@ -26,15 +26,10 @@
 
 </head>
 <body>
-    <!--탑 메뉴 바-->
-    <div class="topmenu-container">
-        <a href="#a"><img src="images/home/new목록.png" class="menu" alt="menu"></a>
-        <a onclick="location.href='/home'"><img src="images/home/meari-logo.png" class="meari-logo" alt="meari-logo"></a>
-        <a href="#a"><img src="images/home/DM.png" class="dm" alt="dm"></a>
-        <a href="#a"><img src="images/home/종.png" class="notice" alt="notice"></a>
-    </div>
+    <!-- top nav -->
+    <div th:replace="common/common :: header" id="header"></div>
 
-    <!-- 날싸 -->
+    <!-- 날씨 -->
     <!-- weather_info 날씨 맨트  -->
     <div class="weather-container">
         <div class="weather-coment">
@@ -174,16 +169,9 @@
     </div>
     <!-- 바텀네비게이션바를 위한 빈박스 -->
     <div style="display: flex; background-color: rgb(255, 255, 255); height: 90px;"></div>
-    <!-- 바텀네비게이션바 -->
-    <div class="bottommenu-container">
-        <a onclick="location.href='/home'"><img src="images/home/1.png" class="icon" alt="icon"></a>
-        <a onclick="location.href='/sns/feed'"><img src="images/home/2.png" class="icon" alt="icon"></a>
-        <a onclick="location.href=''"><img src="images/home/3.png" class="icon" alt="icon"></a>
-        <a onclick="location.href='/profile'"><img src="images/home/4.png" class="icon" alt="icon"></a>
-        <a onclick="location.href='/commerce'"><img src="images/home/5.png" class="icon" alt="icon"></a>
-    </div>
 
-   
+    <!-- bottom nav -->
+    <div th:replace="common/common :: footer" id="footer"></div>
 
     <!-- bxslider사용 -->
     <script type="text/javascript">    

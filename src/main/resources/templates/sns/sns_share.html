@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <link rel="stylesheet" type="text/css" href="styles/sns_share.css">
-    <link rel="stylesheet" href="../home/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,15 +15,12 @@
 <body>
 
     <div class="wrap">
-        <div class="topmenu-container">
-            <a href="#a"><img src="../home/images/new목록.png" class="menu" alt="menu"></a>
-            <a href="#a"><img src="../home/images/메아리.png" class="meari-logo" alt="meari-logo"></a>
-            <a href="#a"><img src="../home/images/DM.png" class="dm" alt="dm"></a>
-            <a href="#a"><img src="../home/images/종.png" class="notice" alt="notice"></a>
-        </div>
+        <!-- top nav -->
+        <div th:replace="common/common :: header" id="header"></div>
+
 
         <div class="share_box" style="text-align: center;line-height: 100px;">
-            <span">새 게시글</span>
+            <span>새 게시글</span>
                 <button id="btn_share" style="color:rgb(1,199,60)">
                     <h3>공유</h3>
                 </button>
@@ -47,13 +44,8 @@
             </div>
         </div>
 
-        <div class="bottommenu-container">
-            <a href="/#a/"><img src="../home/images/1.png" class="icon" alt="icon"></a>
-            <a href="/#a/"><img src="../home/images/2.png" class="icon" alt="icon"></a>
-            <a href="/#a/"><img src="../home/images/3.png" class="icon" alt="icon"></a>
-            <a href="/#a/"><img src="../home/images/4.png" class="icon" alt="icon"></a>
-            <a href="/#a/"><img src="../home/images/5.png" class="icon" alt="icon"></a>
-         </div>
+        <!-- bottom nav -->
+        <div th:replace="common/common :: footer" id="footer"></div>
     </div>
 
 </body>

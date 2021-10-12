@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -8,18 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/commerce/commerce.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="wrap">
-        <!--탑 메뉴 바-->
-        <div class="topmenu-container">
-            <a href="#a"><img src="/images/home/new목록.png" class="menu" alt="menu"></a>
-            <a onclick="location.href='/home'"><img src="/images/home/meari-logo.png" class="meari-logo" alt="meari-logo"></a>
-            <a href="#a"><img src="/images/home/DM.png" class="dm" alt="dm"></a>
-            <a href="#a"><img src="/images/home/종.png" class="notice" alt="notice"></a>
-        </div>
+        <!-- top nav -->
+        <div th:replace="common/common :: header" id="header"></div>
         <header>
             <!--Head-->
             <p class="main">내 근처</p>
@@ -93,14 +88,9 @@
                 </div>
             </div>
         </section>
-        <!-- 바텀네비게이션바 -->
-        <div class="bottommenu-container">
-            <a onclick="location.href='/home'"><img src="/images/home/1.png" class="icon" alt="icon"></a>
-            <a onclick="location.href='/sns/feed'"><img src="/images/home/2.png" class="icon" alt="icon"></a>
-            <a href="../map/map_google.html"><img src="/images/home/3.png" class="icon" alt="icon"></a>
-            <a onclick="location.href='/profile'"><img src="/images/home/4.png" class="icon" alt="icon"></a>
-            <a onclick="location.href='/commerce'"><img src="/images/home/5.png" class="icon" alt="icon"></a>
-        </div>
+
+        <!-- bottom nav -->
+        <div th:replace="common/common :: footer" id="footer"></div>
 
     </div>
 
