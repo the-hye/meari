@@ -11,11 +11,11 @@ import org.apache.ibatis.annotations.Update;
 
 import com.ktds.model.Member;
 
-//DB¿Í ¿¬°áÇÏ´Â ÀÎÅÍÆäÀÌ½º
+//DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½
 @Mapper
 public interface MemberMapper {
 	
-	//@Param("id")¿¡ ÀÖ´Â id¸¦ ÆÄ¶ó¹ÌÅÍ·Î ¹Þ¾Æ¼­ SELECT ¹®ÀÇ ID¿Í ¿¬°áµÈ´Ù 	
+	//@Param("id")ï¿½ï¿½ ï¿½Ö´ï¿½ idï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½Í·ï¿½ ï¿½Þ¾Æ¼ï¿½ SELECT ï¿½ï¿½ï¿½ï¿½ IDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½ 	
 	@Select("SELECT * FROM MEMBER WHERE member_id=#{member_id}")
 	Member getMember(@Param("member_id") String member_id);
 	
@@ -23,18 +23,14 @@ public interface MemberMapper {
 	List<Member> getMemberList();
 	
 	
-	//È¸¿ø °¡ÀÔ 
-	//MemberControllerÀÇ Post Method·Î ¹Þ¾Æ¿Â´Ù
-	@Insert("INSERT INTO MEMBER VALUES(#{member_id}, #{member_pw}, #{member_name}, #{member_sex}, #{member_age}, #{member_email}, #{member_rank}, #{member_image}, #{member_content})")
+	//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	//MemberControllerï¿½ï¿½ Post Methodï¿½ï¿½ ï¿½Þ¾Æ¿Â´ï¿½
+	@Insert("INSERT INTO MEMBER VALUES(#{member_id}, #{member_pw}, #{member_pw_corr}, #{member_name}, #{member_email})")
 	int insertMember(@Param("member_id") String member_id,
-		@Param("member_pw") String member_pw, 
-		@Param("member_name") String member_name, 
-		@Param("member_sex") String member_sex,
-		@Param("member_age") int member_age,
-		@Param("member_email") String member_email,
-		@Param("member_rank") int member_rank,
-		@Param("member_image") String member_image,
-		@Param("member_content") String member_content);
+		@Param("member_pw") String member_pw,
+		@Param("member_pw_corr") String member_pw_corr,
+		@Param("member_name") String member_name,
+		@Param("member_email") String member_email);
 	
 	
 	/*
@@ -43,16 +39,12 @@ public interface MemberMapper {
 			@Param("member_pw") String member_pw);
 	*/
 	
-	@Update("UPDATE MEMBER SET member_pw=#{member_pw}, member_name=#{member_name}, member_sex=#{member_sex}, member_age=#{member_age}, member_email=#{member_email}, member_image=#{member_image}, member_rank=#{member_rank}, member_content=#{member_content} where member_id=#{member_id}")
+	@Update("UPDATE MEMBER SET member_pw=#{member_pw}, member_pw_corr=#{member_pw_corr}, member_name=#{member_name}, member_email=#{member_email} where member_id=#{member_id}")
 	int updateMember(@Param("member_id") String member_id,
-			@Param("member_pw") String member_pw, 
-			@Param("member_name") String member_name, 
-			@Param("member_sex") String member_sex,
-			@Param("member_age") int member_age,
-			@Param("member_email") String member_email,
-			@Param("member_rank") int member_rank,
-			@Param("member_image") String member_image,
-			@Param("member_content") String member_content);
+			@Param("member_pw") String member_pw,
+			@Param("member_pw_corr") String member_pw_corr,
+			@Param("member_name") String member_name,
+			@Param("member_email") String member_email);
 	
 	
 	@Delete("DELETE FROM MEMBER WHERE member_id=#{member_id}")

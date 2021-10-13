@@ -10,9 +10,8 @@ public class MainController {
     public String login(){
         return "login/index";
     }
-	
-	
-	//Test ¡¯«‡¡ﬂ ... 
+
+	//Test √Å√∏√á√†√Å√ü ... 
 	@RequestMapping("/loginTest")
     public String loginTest(){
         return "loginTest";
@@ -54,7 +53,7 @@ public class MainController {
     
 	@RequestMapping("/signup")
 	public String signuppage() {
-		return "signup";
+		return "signup/signup";
 		
 	}
 	

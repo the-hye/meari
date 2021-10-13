@@ -10,17 +10,12 @@ import com.ktds.model.Member;
 import com.ktds.model.MembershipService;
 
 
-//Test ÁøÇàÁß...
+//Test ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
 public class MembershipController {
 
-	
-	
 	private MembershipService membershipService;
-	
 
-	
-	
-	//·Î±×ÀÎ(POST)
+	//ï¿½Î±ï¿½ï¿½ï¿½(POST)
 	@PostMapping("/user/login")
 	public String postLogin(HttpSession session, MemberDto.LoginInfo member, Model model) {
 		if(session.getAttribute("login") != null) {

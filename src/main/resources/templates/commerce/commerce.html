@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -8,101 +8,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/commerce/commerce.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="wrap">
-        <!--탑 메뉴 바-->
-        <div class="topmenu-container">
-            <a href="#a"><img src="/images/home/new목록.png" class="menu" alt="menu"></a>
-            <a onclick="location.href='/home'"><img src="/images/home/meari-logo.png" class="meari-logo" alt="meari-logo"></a>
-            <a href="#a"><img src="/images/home/DM.png" class="dm" alt="dm"></a>
-            <a href="#a"><img src="/images/home/종.png" class="notice" alt="notice"></a>
+<div class="wrap">
+    <!-- top nav -->
+    <div th:replace="common/common :: header" id="header"></div>
+    <header>
+        <!--Head-->
+        <p class="main">내 근처</p>
+
+        <div class="icons">
+            <img class="search" img src="/images/commerce/commerce_img/searchIcon.png"></img>
         </div>
-        <header>
-            <!--Head-->
-            <p class="main">내 근처</p>
-
-            <div class="icons">
-                <img class="search" img src="/images/commerce/commerce_img/searchIcon.png"></img>
+        <br>
+        <p class="location">서울시 서초3동</p>
+        <img class="location2" src="/images/commerce/commerce_img/location.png"></img>
+        <!--Category-->
+        <div class="category">
+            <div class="buttonControl">
+                <button class="category1">등산화</button>
+                <button class="category1">시계</button>
+                <button class="category1">등산스틱</button>
+                <button class="category1">정글모</button>
+                <button class="category1">아이젠</button>
+                <button class="category1">등산복</button>
             </div>
-            <br>
-            <p class="location">서울시 서초3동</p>
-            <img class="location2" src="/images/commerce/commerce_img/location.png"></img>
-            <!--Category-->
-            <div class="category">
-                <div class="buttonControl">
-                    <button class="category1">등산화</button>
-                    <button class="category1">시계</button>
-                    <button class="category1">등산스틱</button>
-                    <button class="category1">정글모</button>
-                    <button class="category1">아이젠</button>
-                    <button class="category1">등산복</button>
-                </div>
+        </div>
+    </header>
+    <section class="board">
+        <div class="feed_btn">
+            <a th:href="@{/post}" target="_blank"><img src="/images/sns/plus.png"></a>
+        </div>
+        <div class="post">
+            <img class="goods" src="/images/commerce/commerce_img/shoes1.jpg" th:text="${board.image}">
+            <div class=content th:each="board : ${boardList}">
+                <a th:href="@{'/post/' + ${board.id}}">
+                    <ul class="title" th:text="${board.title}">신발팝니다</ul>
+                </a>
+                <ul class="name" th:text="${board.writer}">명수찬</ul>
+                <ul class="price" th:text="${board.price}">109,000</ul>
+                <ul class="date" th:text="${#temporals.format(board.createdDate, 'yy.MM.dd HH:mm')}"></ul>
             </div>
-        </header>
-        <section class="board">
-            <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/shoes1.jpg">
-                <div class=content>
-                    <ul class="title">신발팝니다</ul>
-                    <ul class="name">명수찬</ul>
-                    <ul class="price">109,000</ul>
-                </div>
-            </div>
-            <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/backpack.jpg">
-                <div class=content>
-                    <ul class="title">가방팝니다</ul>
-                    <ul class="name">류원선</ul>
-                    <ul class="price">49,900</ul>
-                </div>
-            </div>
-
-            <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/jacket.jpg">
-                <div class=content>
-                    <ul class="title">재킷팝니다</ul>
-                    <ul class="name">김민석</ul>
-                    <ul class="price">59,900</ul>
-                </div>
-            </div>
-            <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/shoes2.jpg">
-                <div class=content>
-                    <ul class="title">신발팝니다</ul>
-                    <ul class="name">조미영</ul>
-                    <ul class="price">149,000</ul>
-                </div>
-            </div>
-            <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/blazer.jpg">
-                <div class=content>
-                    <ul class="title">블레이저팝니다</ul>
-                    <ul class="name">선도우</ul>
-                    <ul class="price">120,000</ul>
-                </div>
-            </div>
-            <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/backpack2.jpg">
-                <div class=content>
-                    <ul class="title">가방팝니다</ul>
-                    <ul class="name">석지혜</ul>
-                    <ul class="price">39,900</ul>
-                </div>
-            </div>
-        </section>
-        <!-- 바텀네비게이션바 -->
-        <div class="bottommenu-container">
-            <a onclick="location.href='/home'"><img src="/images/home/1.png" class="icon" alt="icon"></a>
-            <a onclick="location.href='/sns/feed'"><img src="/images/home/2.png" class="icon" alt="icon"></a>
-            <a href="../map/map_google.html"><img src="/images/home/3.png" class="icon" alt="icon"></a>
-            <a onclick="location.href='/profile'"><img src="/images/home/4.png" class="icon" alt="icon"></a>
-            <a onclick="location.href='/commerce'"><img src="/images/home/5.png" class="icon" alt="icon"></a>
         </div>
 
-    </div>
+    </section>
+
+    <!-- bottom nav -->
+    <div th:replace="common/common :: footer" id="footer"></div>
+
+</div>
 
 </body>
 
