@@ -39,17 +39,17 @@
     </header>
     <section class="board">
         <div class="feed_btn">
-            <a th:href="@{/post}" target="_blank"><img src="/images/sns/plus.png"></a>
+            <a target="_blank"><img src="/images/sns/plus.png"></a>
         </div>
         <div class="post">
-            <img class="goods" src="/images/commerce/commerce_img/shoes1.jpg" th:text="${board.image}">
-            <div class=content th:each="board : ${boardList}">
-                <a th:href="@{'/post/' + ${board.id}}">
-                    <ul class="title" th:text="${board.title}">신발팝니다</ul>
+            <img class="goods" src="/images/commerce/commerce_img/shoes1.jpg">
+            <div class=content >
+                <a>
+                    <ul class="title" >신발팝니다</ul>
                 </a>
-                <ul class="name" th:text="${board.writer}">명수찬</ul>
-                <ul class="price" th:text="${board.price}">109,000</ul>
-                <ul class="date" th:text="${#temporals.format(board.createdDate, 'yy.MM.dd HH:mm')}"></ul>
+                <ul class="name" >명수찬</ul>
+                <ul class="price" >109,000</ul>
+                <ul class="date">날짜</ul>
             </div>
         </div>
 

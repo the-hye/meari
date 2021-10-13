@@ -34,20 +34,6 @@ header {
   margin-left: 15px;
 }
 
-.smartphone {
-  display: inline-block;
-  float: right;
-  margin-right: 10px;
-  margin-top: 10px;
-}
-
-.wifi,
-.battery,
-.lte {
-  width: 20px;
-  height: 20px;
-}
-
 .icons {
   float: right;
   position: relative;
@@ -111,7 +97,7 @@ button {
 
 .content {
   position: relative;
-  bottom: 40px;
+  bottom: 10px;
   margin-left: 15px;
   display: inline-block;
 }
