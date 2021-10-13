@@ -38,55 +38,21 @@
             </div>
         </header>
         <section class="board">
-            <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/shoes1.jpg">
-                <div class=content>
-                    <ul class="title">신발팝니다</ul>
-                    <ul class="name">명수찬</ul>
-                    <ul class="price">109,000</ul>
-                </div>
+            <div class="feed_btn">
+                <a th:href="@{/post}" target="_blank"><img src="/images/sns/plus.png"></a>
             </div>
             <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/backpack.jpg">
-                <div class=content>
-                    <ul class="title">가방팝니다</ul>
-                    <ul class="name">류원선</ul>
-                    <ul class="price">49,900</ul>
+                <img class="goods" src="/images/commerce/commerce_img/shoes1.jpg" th:text="${board.image}">
+                <div class=content th:each="board : ${boardList}">
+                    <a th:href="@{'/post/' + ${board.id}}">
+                        <ul class="title" th:text="${board.title}">신발팝니다</ul>
+                    </a>
+                    <ul class="name" th:text="${board.writer}">명수찬</ul>
+                    <ul class="price" th:text="${board.price}">109,000</ul>
+                    <ul class="date" th:text="${#temporals.format(board.createdDate, 'yy.MM.dd HH:mm')}"></ul>
                 </div>
             </div>
 
-            <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/jacket.jpg">
-                <div class=content>
-                    <ul class="title">재킷팝니다</ul>
-                    <ul class="name">김민석</ul>
-                    <ul class="price">59,900</ul>
-                </div>
-            </div>
-            <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/shoes2.jpg">
-                <div class=content>
-                    <ul class="title">신발팝니다</ul>
-                    <ul class="name">조미영</ul>
-                    <ul class="price">149,000</ul>
-                </div>
-            </div>
-            <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/blazer.jpg">
-                <div class=content>
-                    <ul class="title">블레이저팝니다</ul>
-                    <ul class="name">선도우</ul>
-                    <ul class="price">120,000</ul>
-                </div>
-            </div>
-            <div class="post">
-                <img class="goods" src="/images/commerce/commerce_img/backpack2.jpg">
-                <div class=content>
-                    <ul class="title">가방팝니다</ul>
-                    <ul class="name">석지혜</ul>
-                    <ul class="price">39,900</ul>
-                </div>
-            </div>
         </section>
 
         <!-- bottom nav -->

@@ -17,12 +17,12 @@ public class MembershipService {
 	
 	public Member loginCheck(MemberDto.LoginInfo memberdto) {
 		Member member = mapper.getMember(memberdto.getMember_id());
-	if(memberdto.getMember_pw().equals(member.getMember_pw())) {
-		return member;
-	}
-	else {
-		return null;
-	}
+		if(memberdto.getMember_pw().equals(member.getMember_pw())) {
+			return member;
+		}
+		else {
+			return null;
+		}
 	}
 	
 }

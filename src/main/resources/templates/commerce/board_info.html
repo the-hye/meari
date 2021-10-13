@@ -24,16 +24,16 @@
             <input type="radio" name="slide" id="slide04">
             <ul class="slidelist">
                 <li class="slideitem">
-                    <a><img src="./images/board_img/board_test.jpg"></a>
+                    <a><img src="/images/sns/board_img/board_test.jpg"></a>
                 </li>
                 <li class="slideitem">
-                    <a><img src="./images/board_img/test.png"></a>
+                    <a><img src="/images/sns/board_img/test.png"></a>
                 </li>
                 <li class="slideitem">
-                    <a><img src="../../images/메아리.png"></a>
+                    <a><img src="/images/메아리.png"></a>
                 </li>
                 <li class="slideitem">
-                    <a><img src="../../images/메아리.png"></a>
+                    <a><img src="/images/메아리.png"></a>
                 </li>
             </ul>
             <div class="slide-control">
@@ -60,44 +60,59 @@
         <div class="UserInfo">
             <!-- 유저 게시글 썻을 떄 유저 정보 나오는 곳,,,-->
             <div class="UserProfile">
-                <img src="./images/board_img/board_test.jpg" alt="" />
+                <img src="/images/commerce/board_img/board_test.jpg" alt="" />
                 <div class="UserProfileInfo">
-                    <span class="UserGrade">등린이</span>
+                    <!--title-->
+                    <span class="UserGrade" th:text="${boardDto.writer}"></span>
                     <div class="UserData">
-                        <span class="UserMention">등린이</span>
-                        <span class="UserUpload">업로드시간</span>
+                        <!--가격-->
+                        <span class="UserMention" th:text="${board.price}"></span>
                     </div>
                 </div>
             </div>
             <div class="UserMedal">
-                <img src="./images/board_img/메달.png" alt="" />
+                <img src="/images/commerce/board_img/메달.png" alt="" />
             </div>
 
         </div>
         <hr />
         <div class="board">
-            <div class="board_title">
-                >임시로 제작된 게시글 제목입니다. 왜안됨? 다음줄로 넘어가나요?
-                넘어가는거같네요
-            </div>
+            <div class="board_title" th:text="${boardDto.title}"></div>
             <div class="board_info">
-                <span class="board_category">카테고리란 </span>
-                <span class="board_time">00시00분</span>
+                <span class="board_category">카테고리란</span>
             </div>
 
             <!-- 게시글 상세페이지 게시글 내용 -->
             <div class="board_contents">
-                <div class="board_comment">
-                    DB_data
-                </div>
+                <div class="board_comment" th:text="${boardDto.content}"></div>
+
                 <div class="board_interest">
                     좋 10 댓 10 구 10
                 </div>
+                <!--업로드 시간-->
+                <span class="UserUpload" th:inline="text">[[${#temporals.format(boardDto.createdDate, 'yy.MM.dd HH:mm')}]]</span>
             </div>
         </div>
+        <!-- 수정/삭제 -->
+        <div>
+            <a th:href="@{'/post/edit/' + ${boardDto.id}}">
+                <button>수정</button>
+            </a>
+
+            <form id="delete-form" th:action="@{'/post/' + ${boardDto.id}}" method="post">
+                <input type="hidden" name="_method" value="delete"/>
+                <button id="delete-btn">삭제</button>
+            </form>
+        </div>
+        <!-- 변수 셋팅 -->
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            var boardDto = /*[[${boardDto}]]*/ "";
+            /*]]>*/
+        </script>
         <!-- 게시글 상세페이지 문의하기-->
         <div class="board_btn">
-            <a href="" target="_blank"><img src="../../images/메아리.png"></a>
+            <a href="" target="_blank"><img src="/images/메아리.png"></a>
         </div>
 
         <!-- bottom nav -->

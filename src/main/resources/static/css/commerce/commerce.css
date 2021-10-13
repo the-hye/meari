@@ -34,20 +34,6 @@ header {
   margin-left: 15px;
 }
 
-.smartphone {
-  display: inline-block;
-  float: right;
-  margin-right: 10px;
-  margin-top: 10px;
-}
-
-.wifi,
-.battery,
-.lte {
-  width: 20px;
-  height: 20px;
-}
-
 .icons {
   float: right;
   position: relative;
@@ -111,7 +97,7 @@ button {
 
 .content {
   position: relative;
-  bottom: 40px;
+  bottom: 10px;
   margin-left: 15px;
   display: inline-block;
 }
@@ -127,9 +113,14 @@ button {
   font-size: 15px;
 }
 
+
 .price {
   font-weight: bold;
   font-size: 20px;
+}
+.date{
+  font-size: 15px;
+  color: darkgray;
 }
 .post {
   margin-top: 15px;
@@ -137,4 +128,18 @@ button {
   border-bottom: 1px solid darkgray;
   padding-bottom: 15px;
   margin-right: 15px;
+}
+
+/* 피드 추가 버튼 */
+.feed_btn{
+  position:fixed;
+  top:80%;
+  right:8%;
+  z-index: 9999;
+  width:auto;
+}
+
+.feed_btn img{
+  height: 50px;
+  width: 50px;
 }
