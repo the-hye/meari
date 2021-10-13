@@ -1,20 +1,23 @@
 package com.ktds.service;
 
 import com.ktds.domain.entity.BoardEntity;
-import com.ktds.dto.BoardDto;
 import com.ktds.domain.repository.BoardRepository;
+import com.ktds.dto.BoardDto;
+
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-//import javax.persistence.OrderBy;
+import javax.persistence.OrderBy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@AllArgsConstructor
 @Service
+@AllArgsConstructor
+
 public class BoardService {
     private BoardRepository boardRepository;
 
